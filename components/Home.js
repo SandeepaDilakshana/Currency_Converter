@@ -1,10 +1,19 @@
 import { useState } from 'react';
-import { View, Text } from 'react-native'
-import { TextInput } from 'react-native-paper'
+import { View, Text, StyleSheet } from 'react-native';
+import { TextInput, Button } from 'react-native-paper';
+import { getExchangeRate } from '../src/services/api';
+
+const handleConvert = async()=>{
+    const rate = await getExchangeRate(baseCurrency,targetCurrency)
+    if(rate){
+        setResult(rate * parseFloat(amount));
+    }
+}
 
 const [baseCurrency, setBaseCurrency] = useState('USD');
 const [targetCurrency, setTargetCurrency] = useState('EUR');
 const [amount,setAmount] = useState('');
+const [result,setResult] = useState(null);
 export default function Home() {
     return (
         <View>
