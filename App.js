@@ -1,18 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import { PaperProvider, Text } from 'react-native-paper';
+import { StyleSheet, View, ScrollView } from 'react-native';
+import { PaperProvider } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Header from './components/Header';
 
 export default function App() {
   return (
     <PaperProvider>
-      <SafeAreaView>
-        <KeyBoardAvoidingView>
-          <View style={styles.container}>
-            <Text variant="displayMedium">Currency Converter</Text>
-            <StatusBar style="auto" />
-          </View>
-        </KeyBoardAvoidingView>
-      </SafeAreaView>
+       <SafeAreaView>
+          <ScrollView>
+            <View style={styles.container}>
+              <Header />
+              <StatusBar style="auto" />
+            </View>
+          </ScrollView>
+      </SafeAreaView> 
     </PaperProvider>
   );
 }
