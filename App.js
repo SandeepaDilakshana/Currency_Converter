@@ -11,6 +11,7 @@ export default function App() {
        <SafeAreaView>
           <ScrollView>
             <View style={styles.container}>
+              <Header />
               <Home />
               <StatusBar style="auto" />
             </View>
